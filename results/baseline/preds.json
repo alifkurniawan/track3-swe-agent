@@ -1,0 +1,22 @@
+{
+  "django__django-10554": {
+    "model_name_or_path": "gpt-5-nano",
+    "instance_id": "django__django-10554",
+    "model_patch": "commit 90c1b217dc7e48167a8e499977f222e49458e40d\nAuthor: devnull <devnull@example.com>\nDate:   Tue Aug 25 05:52:01 2026 +0000\n\n    WIP: attempt to strip inner ORDER BY in compound queries to fix ordering on union with derived subqueries\n\ndiff --git a/django/db/models/sql/compiler.py b/django/db/models/sql/compiler.py\nindex a791908caf..1937c5eb9f 100644\n--- a/django/db/models/sql/compiler.py\n+++ b/django/db/models/sql/compiler.py\n@@ -433,6 +433,7 @@ class SQLCompiler:\n                         *self.query.annotation_select,\n                     ))\n                 part_sql, part_args = compiler.as_sql()\n+                compiler.query.clear_ordering(True)\n                 if compiler.query.combinator:\n                     # Wrap in a subquery if wrapping in parentheses isn't\n                     # supported.\n"
+  },
+  "django__django-10914": {
+    "model_name_or_path": "gpt-5-nano",
+    "instance_id": "django__django-10914",
+    "model_patch": "diff --git a/django/conf/global_settings.py b/django/conf/global_settings.py\nindex acee9887d2..bdeec80610 100755\n--- a/django/conf/global_settings.py\n+++ b/django/conf/global_settings.py\n@@ -304,7 +304,7 @@ FILE_UPLOAD_TEMP_DIR = None\n \n # The numeric mode to set newly-uploaded files to. The value should be a mode\n # you'd pass directly to os.chmod; see https://docs.python.org/library/os.html#files-and-directories.\n-FILE_UPLOAD_PERMISSIONS = None\n+FILE_UPLOAD_PERMISSIONS = 0o644\n \n # The numeric mode to assign to newly-created directories, when uploading files.\n # The value should be a mode as you'd pass to os.chmod;\n"
+  },
+  "django__django-11099": {
+    "model_name_or_path": "gpt-5-nano",
+    "instance_id": "django__django-11099",
+    "model_patch": "diff --git a/django/contrib/auth/validators.py b/django/contrib/auth/validators.py\\nindex 0000000..0000000 100644\\n--- a/django/contrib/auth/validators.py\\n+++ b/django/contrib/auth/validators.py\\n@@\\n-regex = r^[\\w.@+-]+\n+regex = r\\A[\\w.@+-]+\\Z\\n@@\\n-regex = r^[\\w.@+-]+\n+regex = r\\A[\\w.@+-]+\\Z"
+  },
+  "django__django-11141": {
+    "model_name_or_path": "gpt-5-nano",
+    "instance_id": "django__django-11141",
+    "model_patch": "diff --git a/django/db/migrations/loader.py b/django/db/migrations/loader.py\nindex 8c308621d2..7b279e8c2c 100644\n--- a/django/db/migrations/loader.py\n+++ b/django/db/migrations/loader.py\n@@ -84,11 +84,8 @@ class MigrationLoader:\n                     continue\n                 raise\n             else:\n-                # Empty directories are namespaces.\n-                # getattr() needed on PY36 and older (replace w/attribute access).\n-                if getattr(module, '__file__', None) is None:\n-                    self.unmigrated_apps.add(app_config.label)\n-                    continue\n+                # Empty directories are namespaces were previously treated as unmigrated.\n+                # Namespace packages without __init__ are now supported by using __path__.\n                 # Module is not a package (e.g. migrations.py).\n                 if not hasattr(module, '__path__'):\n                     self.unmigrated_apps.add(app_config.label)\n"
+  }
+}

@@ -1,0 +1,40 @@
+2026-08-25 13:59:08,502 - minisweagent - INFO - Loading dataset princeton-nlp/SWE-Bench_Verified, split test...
+2026-08-25 13:59:15,243 - minisweagent - INFO - Instance filter: 500 -> 4 instances
+2026-08-25 13:59:15,244 - minisweagent - INFO - Running on 4 instances...
+2026-08-25 13:59:15,244 - minisweagent - INFO - Building agent config from specs: ['swebench.yaml', 'swebench_custom.yaml', 'platform_override.yaml', 'model.model_kwargs.temperature=0']
+2026-08-25 13:59:38,885 - minisweagent - INFO - Loading dataset princeton-nlp/SWE-Bench_Verified, split test...
+2026-08-25 13:59:45,447 - minisweagent - INFO - Instance filter: 500 -> 4 instances
+2026-08-25 13:59:45,448 - minisweagent - INFO - Running on 4 instances...
+2026-08-25 13:59:45,448 - minisweagent - INFO - Building agent config from specs: ['swebench.yaml', 'swebench_custom.yaml', 'platform_override.yaml', 'model.model_kwargs.temperature=0']
+2026-08-25 13:59:46,936 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-df6e5cc1 -w /testbed --platform linux/amd64 docker.io/swebench/sweb.eval.x86_64.django_1776_django-10554:latest sleep 2h
+2026-08-25 13:59:47,106 - minisweagent.environment - INFO - Started container minisweagent-df6e5cc1 with ID b3970626840e7b70b5c4d63fd86070c82ac60dc90af791b07c85bd296b4bb34f
+2026-08-25 14:16:18,092 - minisweagent - INFO - Saved trajectory to '/Users/alif/Documents/workspace/swe-track3/runs/harness-v1/django__django-10554/django__django-10554.traj.json'
+2026-08-25 14:16:18,102 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-5b9f2674 -w /testbed --platform linux/amd64 docker.io/swebench/sweb.eval.x86_64.django_1776_django-10914:latest sleep 2h
+2026-08-25 14:16:18,385 - minisweagent.environment - INFO - Started container minisweagent-5b9f2674 with ID f42a9fcd8d72c335f7728ca011076f27be6dd8d057e9e1068b9c342a4dbb293e
+2026-08-25 14:18:37,819 - minisweagent - INFO - Saved trajectory to '/Users/alif/Documents/workspace/swe-track3/runs/harness-v1/django__django-10914/django__django-10914.traj.json'
+2026-08-25 14:18:37,842 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-f9e29de2 -w /testbed --platform linux/amd64 docker.io/swebench/sweb.eval.x86_64.django_1776_django-11099:latest sleep 2h
+2026-08-25 14:18:38,000 - minisweagent.environment - INFO - Started container minisweagent-f9e29de2 with ID bf7c061a9d0245baccff73ee0e949b9ba523384b6376916f3769c72beeaf2a6a
+2026-08-25 14:25:34,614 - minisweagent - INFO - Saved trajectory to '/Users/alif/Documents/workspace/swe-track3/runs/harness-v1/django__django-11099/django__django-11099.traj.json'
+2026-08-25 14:25:34,622 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-312c8f73 -w /testbed --platform linux/amd64 docker.io/swebench/sweb.eval.x86_64.django_1776_django-11141:latest sleep 2h
+2026-08-25 14:25:34,817 - minisweagent.environment - INFO - Started container minisweagent-312c8f73 with ID 42afbfe497033c5f2ef0cb411e5b2e2b821e027dc970da3ddc9fa10939b4883b
+2026-08-25 14:30:18,935 - minisweagent - INFO - Saved trajectory to '/Users/alif/Documents/workspace/swe-track3/runs/harness-v1/django__django-11141/django__django-11141.traj.json'
+2026-08-25 14:33:49,685 - minisweagent - INFO - Loading dataset princeton-nlp/SWE-Bench_Verified, split test...
+2026-08-25 14:33:55,879 - minisweagent - INFO - Instance filter: 500 -> 2 instances
+2026-08-25 14:33:55,880 - minisweagent - INFO - Running on 2 instances...
+2026-08-25 14:33:55,881 - minisweagent - INFO - Building agent config from specs: ['swebench.yaml', 'swebench_custom.yaml', 'platform_override.yaml', 'model.model_kwargs.temperature=0']
+2026-08-25 14:33:57,301 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-9cd489d0 -w /testbed --platform linux/amd64 docker.io/swebench/sweb.eval.x86_64.django_1776_django-10554:latest sleep 2h
+2026-08-25 14:33:57,498 - minisweagent.environment - INFO - Started container minisweagent-9cd489d0 with ID 57272015f8f096b477acf1f1f7addb7434d5e75de0809916e70c68dcd777394c
+2026-08-25 15:03:31,443 - minisweagent - INFO - Saved trajectory to '/Users/alif/Documents/workspace/swe-track3/runs/harness-v1/django__django-10554/django__django-10554.traj.json'
+2026-08-25 15:03:31,453 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-5750781b -w /testbed --platform linux/amd64 docker.io/swebench/sweb.eval.x86_64.django_1776_django-11099:latest sleep 2h
+2026-08-25 15:03:31,690 - minisweagent.environment - INFO - Started container minisweagent-5750781b with ID 50b4e930d2f3b1585aa57cb02e4807d61825adfb1f956e354ced5a77fe53790c
+2026-08-25 15:06:57,124 - minisweagent - INFO - Cancelling all pending jobs. Press ^C again to exit immediately.
+2026-08-25 15:08:25,368 - minisweagent - INFO - Loading dataset princeton-nlp/SWE-Bench_Verified, split test...
+2026-08-25 15:08:31,904 - minisweagent - INFO - Instance filter: 500 -> 2 instances
+2026-08-25 15:08:31,906 - minisweagent - INFO - Running on 2 instances...
+2026-08-25 15:08:31,906 - minisweagent - INFO - Building agent config from specs: ['swebench.yaml', 'swebench_custom.yaml', 'platform_override.yaml', 'model.model_kwargs.temperature=0']
+2026-08-25 15:08:33,312 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-1e2a0f74 -w /testbed --platform linux/amd64 docker.io/swebench/sweb.eval.x86_64.django_1776_django-11099:latest sleep 2h
+2026-08-25 15:08:33,312 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-5dc397fa -w /testbed --platform linux/amd64 docker.io/swebench/sweb.eval.x86_64.django_1776_django-10554:latest sleep 2h
+2026-08-25 15:08:33,529 - minisweagent.environment - INFO - Started container minisweagent-5dc397fa with ID 16d123b61c0b34ab89d05f50986b3d55a41ae10e33f8d22b9c5d5e833c104eb7
+2026-08-25 15:08:33,539 - minisweagent.environment - INFO - Started container minisweagent-1e2a0f74 with ID eb19ac6b1a761d2f11584400a7fdf1da2639cf4b40161304ec3eac99a36edad7
+2026-08-25 15:12:20,061 - minisweagent - INFO - Saved trajectory to '/Users/alif/Documents/workspace/swe-track3/runs/harness-v1/django__django-11099/django__django-11099.traj.json'
+2026-08-25 15:33:09,908 - minisweagent - INFO - Saved trajectory to '/Users/alif/Documents/workspace/swe-track3/runs/harness-v1/django__django-10554/django__django-10554.traj.json'

@@ -1,0 +1,152 @@
+agent:
+  step_limit: 300
+  cost_limit: 0.5
+
+  instance_template: |
+    <pr_description>
+    Consider the following PR description:
+    {{task}}
+    </pr_description>
+
+    <instructions>
+    # Task Instructions
+
+    ## Overview
+
+    You're a software engineer interacting continuously with a computer by submitting commands.
+    You'll be helping implement the necessary changes to meet the requirements in the PR description.
+
+    Your task is specifically to modify non-test source files in the current directory
+    to fix the issue described in the PR description in a way that is general and
+    consistent with the codebase.
+
+    <IMPORTANT>
+    This is an interactive process. You MUST issue at least one command, inspect its result,
+    and then decide what to do next.
+    </IMPORTANT>
+
+    ## Important Boundaries
+
+    - MODIFY: Regular source code files in /testbed
+    - DO NOT MODIFY: Tests, configuration files, or build files unless explicitly required
+      by the issue.
+
+    ## MANDATORY Workflow
+
+    You MUST follow these steps in order.
+
+    ### Step 1: Understand the issue
+
+    - Read the relevant source code.
+    - Search for the classes, functions, modules, or behavior mentioned in the PR description.
+    - Understand the current implementation before editing.
+
+    ### Step 2: Run relevant tests BEFORE editing
+
+    - Locate existing tests covering the affected functionality.
+    - Run the most relevant targeted test(s) BEFORE making changes.
+    - Inspect the output.
+    - If the existing tests do not reproduce the issue, create a minimal reproduction
+      using a command or Python snippet.
+    - Do NOT modify repository test files.
+
+    ### Step 3: Implement the fix
+
+    - Modify only the necessary production/source files.
+    - Keep the change minimal and consistent with the existing codebase.
+
+    ### Step 4: Verify the fix
+
+    - Re-run the SAME relevant test(s) from Step 2.
+    - The relevant tests MUST pass before proceeding.
+    - If they fail, investigate and continue fixing the source code.
+    - Do NOT submit while relevant tests are failing.
+
+    ### Step 5: Test edge cases
+
+    - Test the specific behavior described in the PR.
+    - Test at least one relevant edge case.
+    - Prefer targeted tests over the full test suite.
+
+    ## MANDATORY PRE-SUBMISSION VERIFICATION GATE
+
+    Before submitting, you MUST perform all of the following checks.
+
+    ### Gate 1: Check repository state
+
+    Run:
+
+        git status --short
+
+    Confirm that only intended production/source files were modified.
+
+    ### Gate 2: Inspect the diff
+
+    Run:
+
+        git diff -- path/to/modified/file1 path/to/modified/file2
+
+    Confirm that the diff contains only the intended source changes.
+
+    ### Gate 3: Generate the patch
+
+    Run:
+
+        git diff -- path/to/modified/file1 path/to/modified/file2 > patch.txt
+
+    The patch must contain only the production/source files intentionally modified.
+
+    ### Gate 4: Validate the patch
+
+    Run:
+
+        git apply --check patch.txt
+
+    This MUST succeed with no errors.
+
+    If it fails:
+    - DO NOT submit.
+    - Inspect and fix the patch.
+    - Regenerate patch.txt.
+    - Run git apply --check patch.txt again.
+
+    ### Gate 5: Final test
+
+    After git apply --check succeeds, run the relevant targeted test one final time.
+
+    The final test MUST pass.
+
+    Only after all verification gates succeed may you submit.
+
+    ## Submission
+
+    When all verification gates have passed, submit the patch using EXACTLY:
+
+        echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT && cat patch.txt
+
+    This command MUST be the final action.
+
+    After submitting:
+    - Do not modify anything.
+    - Do not run additional commands.
+    - Do not continue working on the task.
+
+    ## Command Execution Rules
+
+    Every response MUST contain at least one bash tool call.
+
+    You MUST:
+    1. Issue a command.
+    2. Inspect the result.
+    3. Decide the next action.
+    4. Continue until the task is verified.
+
+    Always use non-interactive commands.
+
+    ## Environment Details
+
+    - Full Linux shell environment.
+    - Working directory: /testbed.
+    - Use bash commands for repository inspection, editing, and testing.
+    - Avoid interactive tools such as vi or nano.
+    </instructions>

@@ -1,0 +1,7 @@
+instances_by_exit_status:
+    LimitsExceeded:
+    - django__django-10554
+    - django__django-11099
+    Submitted:
+    - django__django-10914
+    - django__django-11141

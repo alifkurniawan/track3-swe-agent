@@ -1,0 +1,3 @@
+environment:
+  run_args: ["--platform", "linux/amd64"]
+  pull_timeout: 300
